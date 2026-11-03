@@ -1,0 +1,25 @@
+[project]
+name = "desafio-artefact"
+version = "0.1.0"
+description = "Ambiente Poetry do Desafio Técnico da Artefact."
+authors = [
+    {name = "Pedro Jorge",email = "crf.pedrojorge@gmail.com"}
+]
+requires-python = ">=3.14,<4.0.0"
+dependencies = [
+    "pandas (>=3.1.0,<4.0.0)",
+    "google-genai (>=2.34.0,<3.0.0)",
+    "python-dotenv (>=1.2.4,<2.0.0)",
+    "langchain-google-genai (>=4.4.2,<5.0.0)",
+    "langchain-groq (>=1.1.3,<2.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "ipykernel (>=7.4.0,<8.0.0)"
+]
