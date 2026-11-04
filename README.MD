@@ -50,6 +50,30 @@ A window with the Streamlit interface will open in your browser.
 1. The agent receives, via the prompt, the full documentation about the store and the database schema.
 2. If the question requires database access, the agent can run read-only queries to retrieve the necessary information. Otherwise, it answers based solely on the documentation.
 
+## Repository Structure
+
+.
+├── app.py                      # Application entry point (Streamlit interface)
+├── poetry.lock                 # Dependency lock file
+├── pyproject.toml              # Dependencies, metadata, and Poetry configuration
+├── data/                       # Folder with the store document, the original CSV data, and the SQLite DB
+│   ├── database.db             # Local database (SQLite) queried by the tools
+│   ├── desafio_tecnico_ai_*.csv # Source spreadsheets (loaded into the database)
+│   └── políticas_da_loja.pdf   # Document with the store policies
+├── examples/                   # Example conversations
+│   ├── example1_part1.png      # Example 1 (part 1 of 3)
+│   ├── example1_part2.png      # Example 1 (part 2 of 3)
+│   ├── example1_part3.png      # Example 1 (part 3 of 3)
+│   ├── example2.png            # Example 2
+│   ├── example3.png            # Example 3
+│   └── example4.png            # Example 4
+└── src/                        # Application modules
+    ├── agent.py                # Agent/LLM definition
+    ├── config.py               # Loading of settings, environment variables, and prompt
+    ├── prompt.txt              # System prompt
+    └── tools.py                # Agent tools (database queries, store document retrieval)
+
+
 ## Technical decisions
 
 | Component                                  | Decision                                               | Rationale                                                                                                                                                                                                                                                                                                                                     |
