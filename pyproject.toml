@@ -3,7 +3,7 @@ name = "desafio-artefact"
 version = "0.1.0"
 description = "Ambiente Poetry do Desafio Técnico da Artefact."
 authors = [
-    {name = "Pedro Jorge",email = "crf.pedrojorge@gmail.com"}
+    {name = "Pedro Jorge", email = "crf.pedrojorge@gmail.com"}
 ]
 requires-python = ">=3.14, !=3.14.1, <4.0.0"
 dependencies = [
@@ -16,6 +16,8 @@ dependencies = [
     "pymupdf (>=2.1,<3.0)"
 ]
 
+[tool.poetry]
+package-mode = false
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
