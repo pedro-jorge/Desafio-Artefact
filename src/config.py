@@ -7,7 +7,7 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 class Settings(BaseSettings):
     LLM_MODEL: str = "qwen3:8b"
     LLM_TEMPERATURE: float = 0.0
-    LLM_BASE_URL: str = "http://localhost:11434"
+    LLM_BASE_URL: str = "http://ollama:11434"
     NUM_CTX_TOKENS: int = 8192
     
     ROOT: Path = ROOT_DIR

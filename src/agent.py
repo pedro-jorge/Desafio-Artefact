@@ -21,7 +21,6 @@ class Agent:
             system_prompt=settings.PROMPT.replace("{schema}", get_schema()).replace("{document}", get_document()),
         )
         
-        print(settings.PROMPT.replace("{schema}", get_schema()).replace("{document}", get_document()))
 
     def ask(self, question: str) -> str:
         return self.agent.invoke({
