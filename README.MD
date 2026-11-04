@@ -52,6 +52,7 @@ A window with the Streamlit interface will open in your browser.
 
 ## Repository Structure
 
+```text
 .
 ├── app.py                      # Application entry point (Streamlit interface)
 ├── poetry.lock                 # Dependency lock file
@@ -72,7 +73,7 @@ A window with the Streamlit interface will open in your browser.
     ├── config.py               # Loading of settings, environment variables, and prompt
     ├── prompt.txt              # System prompt
     └── tools.py                # Agent tools (database queries, store document retrieval)
-
+```
 
 ## Technical decisions
 
