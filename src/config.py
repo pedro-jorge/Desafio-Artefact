@@ -1,21 +1,20 @@
 from pathlib import Path
 from functools import lru_cache, cached_property
-from pydantic import SecretStr
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 
 class Settings(BaseSettings):
-    GROQ_API_KEY: SecretStr
-    LLM_MODEL: str
-    LLM_TEMPERATURE: float
-
+    LLM_MODEL: str = "qwen3:8b"
+    LLM_TEMPERATURE: float = 0.0
+    LLM_BASE_URL: str = "http://localhost:11434"
+    NUM_CTX_TOKENS: int = 8192
+    
     ROOT: Path = ROOT_DIR
     DOC_DIR: Path = ROOT_DIR / "data"
     PDF_PATH: Path = DOC_DIR / "políticas_da_loja.pdf"
+    DB_PATH: Path = DOC_DIR / "database.db"
     PROMPT_TEMPLATE: Path = ROOT_DIR / "src" / "prompt.txt"
-
-    model_config = SettingsConfigDict(env_file=ROOT_DIR / ".env", env_file_encoding="utf-8")
     
     @cached_property
     def PROMPT(self) -> str:

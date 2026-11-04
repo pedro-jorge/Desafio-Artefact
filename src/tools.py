@@ -1,27 +1,22 @@
+import re
 from functools import lru_cache
 from contextlib import closing
 
-import re
-import pandas as pd
 import sqlite3
+import pandas as pd
 from langchain.tools import tool
-from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyMuPDFLoader
 
+from src.config import settings
 
-from config import settings
 
 @lru_cache()
-def _load_pdf_text() -> str:
-    pages = PyPDFLoader(str(settings.PDF_PATH)).load()
-    return "\n\n".join(
-        f"[Página {i}]\n{p.page_content.strip()}" for i, p in enumerate(pages, start=1)
-    )
-
-
-@tool
 def get_document() -> str:
-    "Retorna o texto completo do documento da loja."
-    return _load_pdf_text()
+    """Carrega o PDF de políticas da loja e retorna o conteúdo documento."""
+    pages = PyMuPDFLoader(str(settings.PDF_PATH)).load()
+    return "\n".join(
+        f"{p.page_content.strip()}" for p in pages
+    )
 
 
 def _connect_readonly() -> sqlite3.Connection:
